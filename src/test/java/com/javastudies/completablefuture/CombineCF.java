@@ -9,6 +9,7 @@ import java.util.concurrent.ForkJoinPool;
 
 import org.junit.jupiter.api.Test;
 
+import com.javastudies.config.ThreadConfig;
 import com.javastudies.domain.Car;
 import com.javastudies.mocks.CarListMock;
 
@@ -47,6 +48,6 @@ class CombineCF {
 	}
 
 	private CompletableFuture<List<Car>> getCompletableFuture(Integer sizeList) {
-		return CompletableFuture.supplyAsync(() -> CarListMock.getList(sizeList), ForkJoinPool.commonPool());
+		return CompletableFuture.supplyAsync(() -> CarListMock.getList(sizeList), ThreadConfig.threadPoolExecutor);
 	}
 }

@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
+import com.javastudies.config.ThreadConfig;
 import com.javastudies.domain.Car;
 import com.javastudies.mocks.CarListMock;
 
@@ -67,6 +68,6 @@ class AllOfCF {
 				throw new RuntimeException(e);
 			}
 			return CarListMock.getList(sizeList);
-		});
+		}, ThreadConfig.threadPoolExecutor);
 	}
 }
